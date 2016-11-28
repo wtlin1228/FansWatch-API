@@ -1,0 +1,148 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    bond (0.5.1)
+    concurrent-ruby (1.0.2)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    domain_name (0.5.20161021)
+      unf (>= 0.0.5, < 1.0.0)
+    dry-configurable (0.3.0)
+      concurrent-ruby (~> 1.0)
+    dry-container (0.5.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.1, >= 0.1.3)
+    dry-equalizer (0.2.0)
+    dry-matcher (0.5.0)
+    dry-monads (0.2.1)
+      dry-equalizer
+    dry-transaction (0.8.0)
+      dry-container (>= 0.2.8)
+      dry-matcher (>= 0.5.0)
+      dry-monads (>= 0.0.1)
+      wisper (>= 1.6.0)
+    econfig (2.0.0)
+    erubis (2.7.0)
+    fanswatch (0.1.1)
+      http (~> 2.0)
+    ffi (1.9.14)
+    flay (2.8.1)
+      erubis (~> 2.7.0)
+      path_expander (~> 1.0)
+      ruby_parser (~> 3.0)
+      sexp_processor (~> 4.0)
+    flog (4.4.0)
+      path_expander (~> 1.0)
+      ruby_parser (~> 3.1, > 3.1.0)
+      sexp_processor (~> 4.4)
+    hashdiff (0.3.1)
+    hirb (0.7.3)
+    http (2.1.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
+    json (2.0.2)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
+    minitest (5.9.1)
+    minitest-rg (5.2.0)
+      minitest (~> 5.0)
+    multi_json (1.12.1)
+    path_expander (1.0.0)
+    pg (0.19.0)
+    public_suffix (2.0.4)
+    puma (3.6.2)
+    rack (1.6.5)
+    rack-protection (1.5.3)
+      rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rake (11.3.0)
+    rb-fsevent (0.9.8)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
+    representable (2.3.0)
+      uber (~> 0.0.7)
+    rerun (0.11.0)
+      listen (~> 3.0)
+    ripl (0.7.1)
+      bond (~> 0.5.1)
+    ripl-multi_line (0.3.1)
+      ripl (>= 0.3.6)
+    ripl-rack (0.2.1)
+      rack (>= 1.0)
+      rack-test (~> 0.6.2)
+      ripl (>= 0.7.0)
+    roar (1.0.4)
+      representable (>= 2.0.1, < 2.4.0)
+    ruby_dep (1.5.0)
+    ruby_parser (3.8.3)
+      sexp_processor (~> 4.1)
+    safe_yaml (1.0.4)
+    sequel (4.40.0)
+    sexp_processor (4.7.0)
+    sinatra (1.4.7)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    sqlite3 (1.3.12)
+    tilt (2.0.5)
+    tux (0.3.0)
+      ripl (>= 0.3.5)
+      ripl-multi_line (>= 0.2.4)
+      ripl-rack (>= 0.2.0)
+      sinatra (>= 1.2.1)
+    uber (0.0.15)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
+    vcr (3.0.3)
+    webmock (2.1.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
+    wisper (1.6.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dry-container
+  dry-monads
+  dry-transaction
+  econfig
+  fanswatch
+  flay
+  flog
+  hirb
+  json
+  minitest
+  minitest-rg
+  multi_json
+  pg
+  puma
+  rack-test
+  rake
+  rerun
+  roar
+  sequel
+  sinatra
+  sqlite3
+  tux
+  vcr
+  webmock
+
+RUBY VERSION
+   ruby 2.3.1p112
+
+BUNDLED WITH
+   1.13.6
