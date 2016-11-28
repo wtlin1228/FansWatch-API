@@ -25,7 +25,7 @@ GEM
       wisper (>= 1.6.0)
     econfig (2.0.0)
     erubis (2.7.0)
-    fanswatch (0.1.1)
+    fanswatch (0.1.2)
       http (~> 2.0)
     ffi (1.9.14)
     flay (2.8.1)
@@ -120,7 +120,7 @@ DEPENDENCIES
   dry-monads
   dry-transaction
   econfig
-  fanswatch
+  fanswatch (= 0.1.2)
   flay
   flog
   hirb

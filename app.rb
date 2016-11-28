@@ -3,44 +3,59 @@ require 'sinatra'
 require 'econfig'
 require 'fanswatch'
 
-ENV['RACK_ENV'] ||= 'development'
-Econfig.env = ENV['RACK_ENV']
-Econfig.root = File.dirname(__FILE__)
-
-# FansWatch_API service space
-module FansWatchAPI
+# GroupAPI web service
+class FansWatchAPI < Sinatra::Base
   extend Econfig::Shortcut
 
-  # FansWatch_API web service
-  class API < Sinatra::Base
-    API_VER = 'v0.1'
+  Econfig.env = settings.environment.to_s
+  Econfig.root = settings.root
+  FansWatch::FbApi
+    .config
+    .update(client_id: config.FB_CLIENT_ID,
+            client_secret: config.FB_CLIENT_SECRET)
 
-    get '/?' do
-      "FansWatchAPI latest version endpoints are at: /#{API_VER}/"
-    end
+  API_VER = 'api/v0.1'
 
-    get "/#{API_VER}/page/:fb_page_id/?" do
-      page = FansWatch::Page.find(
-        id: params[:fb_page_id]
-      )
+  get '/?' do
+    "FansWatchAPI latest version endpoints are at: /#{API_VER}/"
+  end
 
+  get "/#{API_VER}/page/:fb_page_id/?" do
+    page_id = params[:fb_page_id]
+    begin
+      page = FansWatch::Page.find(id: page_id)
+
+      content_type 'application/json'
       { page_id: page.id, name: page.name }.to_json
+    rescue
+      halt 404, "FB Page (id: #{page_id}) not found"
     end
+  end
 
-    get "/#{API_VER}/page/:fb_page_id/feed/?" do
-      page = FansWatch::Page.find(
-        id: params[:fb_page_id]
-      )
+  get "/#{API_VER}/page/:fb_page_id/feed/?" do
+    page_id = params[:fb_page_id]
+    begin
+      page = FansWatch::Page.find(id: page_id)
 
+      content_type 'application/json'
       {
         feed: page.feed.postings.map do |post|
-          {
-            posting: {
-              posting_id: post.id
+          posting = { posting_id: post.id }
+          posting[:message] = post.message if post.message
+          if post.attachment
+            posting[:attachment] = {
+              title: post.attachment.title,
+              url: post.attachment.url,
+              description: post.attachment.description,
+              image_url: post.attachment.image_url
             }
-          }
+          end
+
+          { posting: posting }
         end
       }.to_json
+    rescue
+      halt 404, "Cannot page (id: #{page_id}) feed"
     end
   end
 end
