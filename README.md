@@ -1,4 +1,5 @@
 # FansWatch-API
+[ ![Codeship Status for wtlin1228/FansWatch-API](https://app.codeship.com/projects/a5022080-90a3-0134-77c9-3ab596a82ab5/status?branch=master)](https://app.codeship.com/projects/185787)
 API to check for feeds and information on public Facebook Pages
 
 ## Routes
