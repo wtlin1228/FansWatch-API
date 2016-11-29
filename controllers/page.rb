@@ -2,7 +2,6 @@
 
 # FansWatchAPI web service
 class FansWatchAPI < Sinatra::Base
-  FB_PAGE_REGEX = %r{\"fb:\/\/page\/(\d+)\"}
   
   get "/#{API_VER}/page/:fb_page_id/?" do
     page_id = params[:fb_page_id]
@@ -20,10 +19,9 @@ class FansWatchAPI < Sinatra::Base
   # Body args (JSON) e.g.: {"url": "http://facebook.com/page/page_name"}
   post "/#{API_VER}/page/?" do
     begin
-      body_params = JSON.parse request.body.read
-      fb_page_url = body_params['url']
-      fb_page_html = HTTP.get(fb_page_url).body.to_s
-      fb_page_id = fb_page_html.match(FB_PAGE_REGEX)[1]
+      body_params = request.params
+      fb_page_url = body_params['url'].to_s
+      fb_page_id  = FansWatch::FbApi.page_id(fb_page_url)
 
       if Page.find(fb_id: fb_page_id)
         halt 422, "Page (id: #{fb_page_id})already exists"

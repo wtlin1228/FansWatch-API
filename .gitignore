@@ -1,3 +1,4 @@
 .bundle/
 config/app.yml
+config/credentials.yml
 db/*.*
