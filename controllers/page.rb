@@ -45,19 +45,19 @@ class FansWatchAPI < Sinatra::Base
   end
 
   # Body args (JSON) e.g.: {"url": "http://facebook.com/page/page_name"}
-   post "/#{API_VER}/page/?" do
-     begin
-       body_params = request.params
-       fb_page_url = body_params['url'].to_s
-       fb_page_id  = FansWatch::FbApi.page_id(fb_page_url)
-       
-       page = FansWatch::Page.find(id: fb_page_id)
+  post "/#{API_VER}/page/?" do
+    begin
+      body_params = request.params
+      fb_page_url = body_params['url'].to_s
+      fb_page_id  = FansWatch::FbApi.page_id(fb_page_url)
+      
+      page = FansWatch::Page.find(id: fb_page_id)
 
-       content_type 'application/json'
-       { page_id: page.id, name: page.name }.to_json
-     rescue
-       content_type 'text/plain'
-       halt 404, "Cannot find page by url (url: #{fb_page_url} )"
-     end
-   end
+      content_type 'application/json'
+      { page_id: page.id, name: page.name }.to_json
+    rescue
+      content_type 'text/plain'
+      halt 404, "Cannot find page by url (url: #{fb_page_url} )"
+    end
+  end
 end
