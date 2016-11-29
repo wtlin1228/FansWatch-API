@@ -50,7 +50,8 @@ class FansWatchAPI < Sinatra::Base
        body_params = request.params
        fb_page_url = body_params['url'].to_s
        fb_page_id  = FansWatch::FbApi.page_id(fb_page_url)
-       fb_page = FansWatch::Page.find(id: fb_page_id)
+       
+       page = FansWatch::Page.find(id: fb_page_id)
 
        content_type 'application/json'
        { page_id: page.id, name: page.name }.to_json
