@@ -4,8 +4,6 @@
 class FansWatchAPI < Sinatra::Base
   extend Econfig::Shortcut
 
-  API_VER = 'api/v0.1'
-
   Econfig.env = settings.environment.to_s
   Econfig.root = File.expand_path('..', settings.root)
   FansWatch::FbApi
