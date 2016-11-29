@@ -65,4 +65,5 @@ describe 'Page Routes' do
       last_response.status.must_equal 404
       last_response.body.must_include SAD_PAGE_URL
     end
+  end
 end
