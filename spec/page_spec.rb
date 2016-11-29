@@ -31,7 +31,7 @@ describe 'Page Routes' do
   end
 
   describe 'Get the latest feed from a page' do
-    it 'HAPPY should find a page feed' do
+    it 'HAPPY: should find a page feed' do
       get "api/v0.1/page/#{app.config.FB_PAGE_ID}/feed"
 
       last_response.status.must_equal 200
@@ -40,11 +40,29 @@ describe 'Page Routes' do
       feed_data['feed'].count.must_be :>=, 25
     end
 
-    it 'SAD should report if the feed cannot be found' do
+    it 'SAD: should report if the feed cannot be found' do
       get "api/v0.1/page/#{SAD_PAGE_ID}/feed"
 
       last_response.status.must_equal 404
       last_response.body.must_include SAD_PAGE_ID
     end
   end
+
+  describe 'Post a page\'s url and it should get the page\'s name and id' do
+    it 'HAPPY: should find the page' do
+      post "api/v0.1/page/?url=#{HAPPY_PAGE_URL}"
+
+      last_response.status.must_equal 200
+      last_response.content_type.must_equal 'application/json'
+      page_data = JSON.parse(last_response.body)
+      page_data['page_id'].length.must_be :>, 0
+      page_data['name'].length.must_be :>, 0
+    end
+
+    it 'SAD: should report the page cannot be found' do
+      post "api/v0.1/page/?url=#{SAD_PAGE_URL}"
+
+      last_response.status.must_equal 404
+      last_response.body.must_include SAD_PAGE_URL
+    end
 end

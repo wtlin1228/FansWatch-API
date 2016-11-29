@@ -38,9 +38,9 @@ VCR.configure do |c|
   c.filter_sensitive_data('<CLIENT_SECRET>') { ENV['FB_CLIENT_SECRET'] }
 end
 
-HAPPY_GROUP_URL = 'https://www.facebook.com/cyberbuzz'
-SAD_GROUP_URL = 'https://www.facebook.com/123smallthree'
-BAD_GROUP_URL = 'htt://www.facebook'
+HAPPY_PAGE_URL = 'https://www.facebook.com/cyberbuzz'
+SAD_PAGE_URL = 'https://www.facebook.com/123smallthree'
+BAD_PAGE_URL = 'htt://www.facebook'
 
 SAD_PAGE_ID = '00000'
 SAD_POSTING_ID = '13245_12324'
