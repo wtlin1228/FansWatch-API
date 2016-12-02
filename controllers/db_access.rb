@@ -36,7 +36,7 @@ class FansWatchAPI < Sinatra::Base
     end
 
     begin
-      db_page = Page.create(fb_id: page_id, page_name: page_name)
+      db_page = Page.create(fb_id: page_id, name: page_name)
 
       fb_page.feed.postings.each do |fb_posting|
         Posting.create(
