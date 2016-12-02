@@ -10,7 +10,6 @@ Sequel.migration do
       String :fb_id
       String :created_time
       String :message
-      String :name
       String :attachment_title
       String :attachment_description
       String :attachment_imgurl
