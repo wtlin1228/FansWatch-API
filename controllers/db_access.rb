@@ -3,11 +3,9 @@
 # FansWatchAPI web service
 class FansWatchAPI < Sinatra::Base
 
-  get "/#{API_VER}/db_page/:id/?" do
-    fb_id = params[:id]
-    page_test = Page.create(fb_id: "1234", name: "Leo")
+  get "/#{API_VER}/db_page/?" do
     begin
-      page = page_test.find(fb_id: fb_id)
+      page = Page.all.first
 
       content_type 'application/json'
       { id: page.id, fb_id: page.fb_id, name: page.name }.to_json
