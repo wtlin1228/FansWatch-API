@@ -24,7 +24,7 @@ describe 'DB ACCESS' do
       #   attachment_url: "test_attachment_url_1"
       # )      
       # DB[:pages].delete
-      Page.create(fb_id: "1234", name: "Leo")
+      # Page.create(fb_id: "1234", name: "Leo")
     end
     it 'HAPPY: should find a page given a correct id' do
       get "api/v0.1/db_page/1234"
