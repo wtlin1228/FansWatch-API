@@ -21,6 +21,7 @@ FIXTURES_FOLDER = 'spec/fixtures'
 CASSETTES_FOLDER = "#{FIXTURES_FOLDER}/cassettes"
 PAGES_CASSETTE = 'pages'
 POSTINGS_CASSETTE = 'postings'
+DB_PAGES_CASSETTE = 'db_page'
 
 VCR.configure do |c|
   c.cassette_library_dir = CASSETTES_FOLDER
