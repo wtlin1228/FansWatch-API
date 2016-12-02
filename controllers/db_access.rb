@@ -5,6 +5,7 @@ class FansWatchAPI < Sinatra::Base
 
   get "/#{API_VER}/db_page/:id/?" do
     fb_id = params[:id]
+    Page.create(fb_id: "1234", name: "Leo")
     begin
       page = Page.find(fb_id: fb_id)
 

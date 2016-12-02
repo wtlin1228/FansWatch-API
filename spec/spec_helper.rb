@@ -23,6 +23,14 @@ PAGES_CASSETTE = 'pages'
 POSTINGS_CASSETTE = 'postings'
 DB_PAGES_CASSETTE = 'db_page'
 
+# if File.file?('config/app.yml')
+#   credentials = YAML.load(File.read('config/app.yml'))
+#   ENV['FB_CLIENT_ID'] = credentials['development']['FB_CLIENT_ID']
+#   ENV['FB_CLIENT_SECRET'] = credentials['development']['FB_CLIENT_SECRET']
+#   ENV['FB_ACCESS_TOKEN'] = credentials['development']['FB_ACCESS_TOKEN']
+#   ENV['FB_PAGE_ID'] = credentials['development']['FB_PAGE_ID']
+# end
+
 VCR.configure do |c|
   c.cassette_library_dir = CASSETTES_FOLDER
   c.hook_into :webmock
@@ -38,6 +46,8 @@ VCR.configure do |c|
   c.filter_sensitive_data('<CLIENT_ID>') { ENV['FB_CLIENT_ID'] }
   c.filter_sensitive_data('<CLIENT_SECRET>') { ENV['FB_CLIENT_SECRET'] }
 end
+
+
 
 HAPPY_PAGE_URL = 'https://www.facebook.com/cyberbuzz'
 SAD_PAGE_URL = 'https://www.facebook.com/123smallthree'

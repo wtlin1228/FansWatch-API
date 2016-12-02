@@ -25,7 +25,7 @@ GEM
       wisper (>= 1.6.0)
     econfig (2.0.0)
     erubis (2.7.0)
-    fanswatch (0.1.3)
+    fanswatch (0.1.4)
       http (~> 2.0)
     ffi (1.9.14)
     flay (2.8.1)
@@ -53,11 +53,11 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    minitest (5.9.1)
+    minitest (5.10.1)
     minitest-rg (5.2.0)
       minitest (~> 5.0)
     multi_json (1.12.1)
-    path_expander (1.0.0)
+    path_expander (1.0.1)
     pg (0.19.0)
     public_suffix (2.0.4)
     puma (3.6.2)
@@ -88,7 +88,7 @@ GEM
     ruby_parser (3.8.3)
       sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
-    sequel (4.40.0)
+    sequel (4.41.0)
     sexp_processor (4.7.0)
     sinatra (1.4.7)
       rack (~> 1.5)
@@ -120,7 +120,7 @@ DEPENDENCIES
   dry-monads
   dry-transaction
   econfig
-  fanswatch (= 0.1.3)
+  fanswatch (= 0.1.4)
   flay
   flog
   hirb

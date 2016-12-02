@@ -8,7 +8,7 @@ gem 'json'
 gem 'econfig'
 gem 'rake'
 
-gem 'fanswatch', '0.1.3'
+gem 'fanswatch', '0.1.4'
 gem 'sequel'
 gem 'roar'
 gem 'multi_json'
