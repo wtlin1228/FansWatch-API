@@ -13,7 +13,7 @@ describe 'DB ACCESS' do
 
   describe '[DB]Find Page by its ID' do
     before do
-      post "/#{API_VER}/forTest/?"
+      post "/api/v0.1/forTest/?"
     end
     it 'HAPPY: should find a page given a correct id' do
       get "api/v0.1/db_page/?"
