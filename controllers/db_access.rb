@@ -27,9 +27,10 @@ class FansWatchAPI < Sinatra::Base
       
       page_id = page.id
       page_name = page.name
-      if !(Page.find(fb_id: page_id) )
+      if !( Page.find(fb_id: page_id) ) begin
         Page.insert(fb_id: page_id, page_name: page_name)
-
+      end
+      
       content_type 'application/json'
       { page_id: page.id, name: page.name }.to_json
     rescue
