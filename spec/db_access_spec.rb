@@ -35,7 +35,7 @@ describe 'Page Routes' do
     end
   end
 
-  describe 'Post a page\'s url and it should get the page\'s name and id' do
+  describe '[DB]Post a page\'s url and it should get the page\'s name and id' do
     before do
       DB[:pages].delete
       DB[:postings].delete
