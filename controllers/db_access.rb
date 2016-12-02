@@ -17,7 +17,7 @@ class FansWatchAPI < Sinatra::Base
 
   post "/#{API_VER}/forTest/?" do
     begin
-      Group.create(fb_id: "1234", name: "Leo")
+      Page.create(fb_id: "1234", name: "Leo")
       Posting.create(
         fb_id: "test_fb_id_1" ,
         created_time: "test_created_time_1" ,
