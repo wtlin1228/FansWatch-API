@@ -4,9 +4,9 @@
 class FansWatchAPI < Sinatra::Base
 
   get "/#{API_VER}/db_page/:id/?" do
-    page_id = params[:id]
+    fb_id = params[:id]
     begin
-      page = Page.find(id: page_id)
+      page = Page.find(fb_id: fb_id)
 
       content_type 'application/json'
       { id: page.id, fb_id: page.fb_id, name: page.name }.to_json

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require_relative 'spec_helper'
 
-describe 'Page Routes' do
+describe 'DB ACCESS' do
 
   before do
     VCR.insert_cassette DB_PAGES_CASSETTE, record: :new_episodes
@@ -13,12 +13,12 @@ describe 'Page Routes' do
 
   describe '[DB]Find Page by its ID' do
     before do
-      DB[:pages].delete
-      DB[:postings].delete
+      # DB[:pages].delete
+      # DB[:postings].delete
       Page.create(fb_id: "1234", name: "Leo")
     end
     it 'HAPPY: should find a page given a correct id' do
-      get "api/v0.1/db_page/1"
+      get "api/v0.1/db_page/1234"
 
       last_response.status.must_equal 200
       last_response.content_type.must_equal 'application/json'
