@@ -13,18 +13,7 @@ describe 'DB ACCESS' do
 
   describe '[DB]Find Page by its ID' do
     before do
-      # Page.create(fb_id: "1234", name: "Leo")
-      # Posting.create(
-      #   fb_id: "test_fb_id_1" ,
-      #   created_time: "test_created_time_1" ,
-      #   message: "test_message_1" ,
-      #   attachment_title: "test_attachment_title_1" ,
-      #   attachment_description: "test_attachment_description_1" ,
-      #   attachment_imgurl: "test_attachment_imgurl_1" ,
-      #   attachment_url: "test_attachment_url_1"
-      # )      
-      # DB[:pages].delete
-      # Page.create(fb_id: "1234", name: "Leo")
+      post "/#{API_VER}/forTest/?"
     end
     it 'HAPPY: should find a page given a correct id' do
       get "api/v0.1/db_page/?"
@@ -32,8 +21,8 @@ describe 'DB ACCESS' do
       last_response.status.must_equal 200
       last_response.content_type.must_equal 'application/json'
       page_data = JSON.parse(last_response.body)
-      # page_data['fb_id'].length.must_be :>, 0
-      # page_data['name'].length.must_be :>, 0
+      page_data['fb_id'].length.must_be :>, 0
+      page_data['name'].length.must_be :>, 0
     end
 
     it 'SAD: should report if a page is not found' do
