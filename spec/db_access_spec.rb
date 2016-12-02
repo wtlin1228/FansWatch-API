@@ -13,8 +13,17 @@ describe 'DB ACCESS' do
 
   describe '[DB]Find Page by its ID' do
     before do
-      # DB[:pages].delete
-      # DB[:postings].delete
+      Page.create(fb_id: "1234", name: "Leo")
+      Posting.create(
+        fb_id: "test_fb_id_1" ,
+        created_time: "test_created_time_1" ,
+        message: "test_message_1" ,
+        attachment_title: "test_attachment_title_1" ,
+        attachment_description: "test_attachment_description_1" ,
+        attachment_imgurl: "test_attachment_imgurl_1" ,
+        attachment_url: "test_attachment_url_1"
+      )      
+      DB[:pages].delete
       Page.create(fb_id: "1234", name: "Leo")
     end
     it 'HAPPY: should find a page given a correct id' do
@@ -37,6 +46,16 @@ describe 'DB ACCESS' do
 
   describe '[DB]Post a page\'s url and it should get the page\'s name and id' do
     before do
+      Page.create(fb_id: "1234", name: "Leo")
+      Posting.create(
+        fb_id: "test_fb_id_1" ,
+        created_time: "test_created_time_1" ,
+        message: "test_message_1" ,
+        attachment_title: "test_attachment_title_1" ,
+        attachment_description: "test_attachment_description_1" ,
+        attachment_imgurl: "test_attachment_imgurl_1" ,
+        attachment_url: "test_attachment_url_1"
+      )      
       DB[:pages].delete
       DB[:postings].delete
     end
