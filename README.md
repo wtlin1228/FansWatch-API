@@ -10,7 +10,10 @@ API to check for feeds and information on public Facebook Pages
 - `/` - check if API alive
 - `/api/v0.1/page/:page_id` - confirm page id, get name of page
 - `/api/v0.1/page/:page_id/feed` - get first page feed of a page
+- `/api/v0.1/db_page/?` - get the first row in the database page table
 
 ### POST
 
 - `/api/v0.1/page/?url=[FB_PAGE_URL]` - get page by url
+- `/api/v0.1/forTest/?` - generate a testcase for spec
+- `/api/v0.1/db_page/?url=[FB_PAGE_URL]` - get the posting of the page and update both page and posting table 
