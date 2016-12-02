@@ -11,7 +11,7 @@ class FansWatchAPI < Sinatra::Base
       { id: page.id, fb_id: page.fb_id, name: page.name }.to_json
     rescue
       content_type 'text/plain'
-      halt 404, "FB Page (id: #{page_id}) not found"
+      halt 404, "FB Page not found"
     end
   end
 
