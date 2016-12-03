@@ -5,5 +5,5 @@ require_relative 'page'
 class PagesRepresenter < Roar::Decorator
   include Roar::JSON
 
-  collection :pages, extend: GroupRepresenter, class: Group
+  collection :pages, extend: PageRepresenter, class: Page
 end
