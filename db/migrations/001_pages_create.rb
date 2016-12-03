@@ -7,6 +7,7 @@ Sequel.migration do
       primary_key :id
       String :fb_id
       String :name
+      String :fb_url
     end
   end
 end

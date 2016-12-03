@@ -56,7 +56,7 @@ class FansWatchAPI < Sinatra::Base
     end
 
     begin
-      db_page = Page.create(fb_id: page_id, name: page_name)
+      db_page = Page.create(fb_id: page_id, name: page_name, fb_url: fb_page_url)
 
       fb_page.feed.postings.each do |fb_posting|
         Posting.create(
@@ -72,7 +72,7 @@ class FansWatchAPI < Sinatra::Base
       end
 
       content_type 'application/json'
-      { page_id: db_page.id, name: db_page.name }.to_json
+      { page_id: db_page.id, name: db_page.name, fb_url: db_page.fb_url}.to_json
 
     rescue
       content_type 'text/plain'
