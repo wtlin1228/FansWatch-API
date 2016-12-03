@@ -3,17 +3,35 @@
 # FansWatchAPI web service
 class FansWatchAPI < Sinatra::Base
 
-  get "/#{API_VER}/db_page/:id/?" do
-    fb_id = params[:id]
-    Page.create(fb_id: "1234", name: "Leo")
+  get "/#{API_VER}/db_page/?" do
     begin
-      page = Page.find(fb_id: fb_id)
+      page = Page.all.first
 
       content_type 'application/json'
       { id: page.id, fb_id: page.fb_id, name: page.name }.to_json
     rescue
       content_type 'text/plain'
-      halt 404, "FB Page (id: #{page_id}) not found"
+      halt 404, "FB Page not found"
+    end
+  end
+
+  post "/#{API_VER}/forTest/?" do
+    begin
+      Group.create(fb_id: "1234", name: "Leo")
+      Posting.create(
+        fb_id: "test_fb_id_1" ,
+        created_time: "test_created_time_1" ,
+        message: "test_message_1" ,
+        attachment_title: "test_attachment_title_1" ,
+        attachment_description: "test_attachment_description_1" ,
+        attachment_imgurl: "test_attachment_imgurl_1" ,
+        attachment_url: "test_attachment_url_1"
+      )      
+      content_type 'text/plain'
+      "generate test pattern"
+    rescue
+      content_type 'text/plain'
+      halt 404, "Cannot generate test pattern"
     end
   end
 
@@ -38,7 +56,7 @@ class FansWatchAPI < Sinatra::Base
     end
 
     begin
-      db_page = Page.create(fb_id: page_id, page_name: page_name)
+      db_page = Page.create(fb_id: page_id, name: page_name)
 
       fb_page.feed.postings.each do |fb_posting|
         Posting.create(
