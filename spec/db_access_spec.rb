@@ -45,8 +45,8 @@ describe 'DB ACCESS' do
       #   attachment_imgurl: "test_attachment_imgurl_1" ,
       #   attachment_url: "test_attachment_url_1"
       # )      
-      # DB[:pages].delete
-      # DB[:postings].delete
+      DB[:pages].delete
+      DB[:postings].delete
     end
     it 'HAPPY: should find the page' do
       post "api/v0.1/db_page/?url=#{HAPPY_PAGE_URL}"
