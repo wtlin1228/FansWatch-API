@@ -20,6 +20,7 @@ class FansWatchAPI < Sinatra::Base
       Page.create(fb_id: "1234", name: "Leo")
       Posting.create(
         fb_id: "test_fb_id_1" ,
+        page_id: "test_page_id_1",
         created_time: "test_created_time_1" ,
         message: "test_message_1" ,
         attachment_title: "test_attachment_title_1" ,
