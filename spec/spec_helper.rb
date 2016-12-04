@@ -48,7 +48,7 @@ VCR.configure do |c|
 end
 
 
-
+PAGE_URL_2 = 'https://www.facebook.com/time'
 HAPPY_PAGE_URL = 'https://www.facebook.com/cyberbuzz'
 SAD_PAGE_URL = 'https://www.facebook.com/123smallthree'
 BAD_PAGE_URL = 'htt://www.facebook'

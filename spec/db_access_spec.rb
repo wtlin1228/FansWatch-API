@@ -48,6 +48,7 @@ describe 'DB ACCESS' do
       DB[:pages].delete
       DB[:postings].delete
     end
+
     it 'HAPPY: should find the page' do
       post "api/v0.1/db_page/?url=#{HAPPY_PAGE_URL}"
 
@@ -76,4 +77,23 @@ describe 'DB ACCESS' do
       last_response.status.must_equal 422
     end
   end
+
+  describe 'Test the url post route with json input' do
+    before do
+      DB[:pages].delete
+      DB[:postings].delete
+    end
+
+    it 'HAPPY: should find the page' do
+      post 'api/v0.1/db_page/json',
+      {"url": "https://www.facebook.com/cyberbuzz"}.to_json,
+      'CONTENT_TYPE' => 'application/json'
+
+      last_response.status.must_equal 200
+
+      Page.count.must_equal 1
+      Posting.count.must_be :>=, 10
+    end
+  end
+
 end

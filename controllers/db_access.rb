@@ -2,7 +2,8 @@
 
 # FansWatchAPI web service
 class FansWatchAPI < Sinatra::Base
-
+  
+  # get first page from database
   get "/#{API_VER}/db_page/?" do
     begin
       page = Page.all.first
@@ -78,6 +79,17 @@ class FansWatchAPI < Sinatra::Base
     rescue
       content_type 'text/plain'
       halt 500, "Cannot create page (id: #{page_id})"
+    end
+  end
+
+  # post request with json params
+  post "/#{API_VER}/db_page/json/?" do
+    result = LoadPageFromFB.call(request.body.read)
+
+    if result.success?
+      PageRepresenter.new(result.value).to_json
+    else
+      ErrorRepresenter.new(result.value).to_status_response
     end
   end
 end
