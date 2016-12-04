@@ -3,7 +3,9 @@
 
 API to check for feeds and information on public Facebook Pages
 
-ex : 'https://www.facebook.com/cyberbuzz',
+ex : 
+
+     'https://www.facebook.com/cyberbuzz',
      
      'https://www.facebook.com/time'
 
