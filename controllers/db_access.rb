@@ -37,6 +37,24 @@ class FansWatchAPI < Sinatra::Base
     end
   end
 
+  # Get all pages
+  get "/#{API_VER}/allpages/?" do
+    results = FindPages.call
+
+    PagesRepresenter.new(results.value).to_json
+  end
+
+  # Get page by id
+  get "/#{API_VER}/onepage/:id/?" do
+    result = FindPage.call(params)
+
+    if result.success?
+      PageRepresenter.new(result.value).to_json
+    else
+      ErrorRepresenter.new(result.value).to_status_response
+    end
+  end
+
   # Body args (JSON) e.g.: {"url": "http://facebook.com/groups/group_name"}
   post "/#{API_VER}/db_page/?" do
     begin
