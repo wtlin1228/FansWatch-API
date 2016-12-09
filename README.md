@@ -26,3 +26,11 @@ ex :
 - `/api/v0.1/forTest/?` - generate a testcase for spec
 - `/api/v0.1/db_page/?url=[FB_PAGE_URL]` - get the posting of the page and update both page and posting table 
 - `/api/v0.1/db_page/json/?{"url": [FB_PAGE_URL]}.to_json` - get the posting of the page and update both page and posting table 
+
+## Test
+
+### Clear database
+-`rake clear` 
+
+### Generate tesecase
+-`rake testcase` 
