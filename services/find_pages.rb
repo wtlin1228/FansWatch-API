@@ -8,7 +8,7 @@ class FindPages
     if (pages = Page.all).nil?
       Left(Error.new(:not_found, 'No pages found'))
     else
-      Right(Groups.new(pages))
+      Right(Pages.new(pages))
     end
   end
 end

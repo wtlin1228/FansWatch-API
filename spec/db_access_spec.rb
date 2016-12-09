@@ -15,6 +15,7 @@ describe 'DB ACCESS' do
     before do
       post "/api/v0.1/forTest/?"
     end
+
     it 'HAPPY: should find a page given a correct id' do
       get "api/v0.1/db_page/?"
 
@@ -92,7 +93,7 @@ describe 'DB ACCESS' do
       last_response.status.must_equal 200
 
       Page.count.must_equal 1
-      Posting.count.must_be :>=, 10
+      Posting.count.must_be :>=, 20
     end
   end
 

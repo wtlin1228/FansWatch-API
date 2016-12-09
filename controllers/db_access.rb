@@ -41,6 +41,7 @@ class FansWatchAPI < Sinatra::Base
   get "/#{API_VER}/allpages/?" do
     results = FindPages.call
 
+    content_type 'application/json'
     PagesRepresenter.new(results.value).to_json
   end
 
