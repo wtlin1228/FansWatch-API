@@ -11,6 +11,16 @@ Rake::TestTask.new(:spec) do |t|
   t.warning = false
 end
 
+Rake::TestTask.new(:testcase) do |t|
+  t.pattern = 'test/testcase.rb'
+  t.warning = false
+end
+
+Rake::TestTask.new(:clear) do |t|
+  t.pattern = 'test/earse.rb'
+  t.warning = false
+end
+
 namespace :db do
   task :_setup do
     require 'sequel'
