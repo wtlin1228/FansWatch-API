@@ -3,6 +3,12 @@
 
 API to check for feeds and information on public Facebook Pages
 
+ex : 
+
+     'https://www.facebook.com/cyberbuzz',
+     
+     'https://www.facebook.com/time'
+
 ## Routes
 
 ### GET
@@ -11,6 +17,8 @@ API to check for feeds and information on public Facebook Pages
 - `/api/v0.1/page/:page_id` - confirm page id, get name of page
 - `/api/v0.1/page/:page_id/feed` - get first page feed of a page
 - `/api/v0.1/db_page/?` - get the first row in the database page table
+- `/api/v0.1/allpages/?` - get all pages form database
+- `/api/v0.1/onepage/:id?` - get one page form database by its id
 
 ### POST
 
