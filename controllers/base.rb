@@ -13,6 +13,14 @@ class FansWatchAPI < Sinatra::Base
 
   API_VER = 'api/v0.1'
 
+  if File.file?('config/app.yml')
+    credentials = YAML.load(File.read('config/app.yml'))
+    ENV['FB_CLIENT_ID'] = credentials['development']['FB_CLIENT_ID']
+    ENV['FB_CLIENT_SECRET'] = credentials['development']['FB_CLIENT_SECRET']
+    ENV['FB_ACCESS_TOKEN'] = credentials['development']['FB_ACCESS_TOKEN']
+    ENV['FB_PAGE_ID'] = credentials['development']['FB_PAGE_ID']
+  end
+
   get '/?' do
     "FansWatchAPI latest version endpoints are at: /#{API_VER}/"
   end

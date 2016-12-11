@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative 'test_help'
+require_relative 'test_helper'
 
 describe 'Delete all database' do
   describe 'Clear the page and posting table' do

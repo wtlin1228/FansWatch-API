@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative 'test_help'
+require_relative 'test_helper'
 
 describe 'For test usage' do
   describe 'Generate testcase with facebook page url' do
